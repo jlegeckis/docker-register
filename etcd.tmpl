@@ -32,8 +32,8 @@ except KeyError:
 {{ if $address.HostPort}}
 # {{ $value.Name }}
 
-client.write("/backends/{{ $value.Image.Repository}}/{{printf "%.*s" 12 $value.ID}}", "{{ $local.Env.HOST_IP }}:{{ $address.HostPort }}", ttl=15)
-client.write("/backends/{{ $value.Image.Repository}}/port", "{{ $address.Port }}", ttl=15)
+client.write("/backends/{{ $value.Name}}/{{printf "%.*s" 12 $value.ID}}", "{{ $local.Env.HOST_IP }}:{{ $address.HostPort }}", ttl=15)
+client.write("/backends/{{ $value.Name}}/port", "{{ $address.Port }}", ttl=15)
 
 {{ end }}
 {{ end }}
